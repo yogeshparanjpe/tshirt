@@ -33,26 +33,24 @@
       var deliveryAddress = document.getElementById("delivery_address").value;
       var contactNumber = document.getElementById("contact_number").value;
 
+      // User details
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var gender = document.querySelector('input[name="gender"]:checked').value;
+
       // Check if quantity exceeds 50
       if (parseInt(quantity) > 50) {
         alert("Order quantity cannot exceed 50.");
         return;
       }
 
-      // Create a Person object
-      var person = {
-        tagline: tagline,
-        color: color,
-        size: size,
-        quantity: quantity,
-        deliveryDate: deliveryDate,
-        deliveryAddress: deliveryAddress,
-        contactNumber: contactNumber
-      };
-
       // Create and display the receipt within the HTML page
       var receipt = `<h2>Receipt</h2>`;
       receipt += `<p>Receipt Date: ${receiptDate}</p>`;
+      receipt += `<p>User Details:</p>`;
+      receipt += `<p>Name: ${name}</p>`;
+      receipt += `<p>Age: ${age}</p>`;
+      receipt += `<p>Gender: ${gender}</p>`;
       receipt += `<p>Order Details:</p>`;
       receipt += `<p>Tagline: ${tagline}</p>`;
       receipt += `<p>Color: ${color}</p>`;
@@ -70,6 +68,19 @@
 <body>
 <h1>Customized T-shirt Order Form</h1>
 <form action="" method="post">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" required><br>
+
+  <label for="age">Age:</label><br>
+  <input type="number" id="age" name="age" min="1" required><br>
+
+  <label>Gender:</label><br>
+  <input type="radio" id="male" name="gender" value="Male" required>
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" value="Female" required>
+  <label for="female">Female</label>
+  <br>
+
   <label for="tagline">Tagline on the Shirt:</label><br>
   <input type="text" id="tagline" name="tagline" required><br>
 
